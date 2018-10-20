@@ -1,0 +1,51 @@
+// Reset the box model measurements.
+@mixin reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; }
+
+// Reset the font and vertical alignment.
+@mixin reset-font {
+  font: {
+    weight: inherit;
+    style: inherit;
+    size: 100%;
+    family: inherit; };
+  vertical-align: baseline; }
+
+// Reset a table
+@mixin reset-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle; }
+
+// Reset a table cell (`th`, `td`)
+@mixin reset-table-cell {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+// Reset a quotation (`q`, `blockquote`)
+@mixin reset-quotation {
+  quotes: "" "";
+  &:before, &:after {
+    content: ""; } }
+
+@mixin reset-image-anchor-border {
+  border: none; }
+
+@mixin nested-reset {
+  div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+  pre, a, abbr, acronym, address, code, del, dfn, em, img,
+  dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr {
+    @include reset-box-model;
+    @include reset-font; }
+  table {
+    @include reset-table; }
+  caption, th, td {
+    @include reset-table-cell; }
+  q, blockquote {
+    @include reset-quotation; }
+  a img {
+    @include reset-image-anchor-border; } }
